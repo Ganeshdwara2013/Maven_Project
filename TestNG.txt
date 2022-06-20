@@ -1,0 +1,277 @@
+TestNG : 
+
+         Test NextGeneration  --->  TDD ( Test Driven Development )
+
+         it is an automation testing framework
+
+         inspired from J-Unit. 	
+	
+*****************************************************************************************************************
+Features :
+
+1. Simple Annotations ---> STCM
+
+2. Ignore 
+
+3. Priority
+
+4. Grouping
+
+5. Dependency --> depends on methods
+
+6. Invocation count (multiple times)
+
+7. Time Out
+
+8. Expected Exception Test ----> -ve cases
+
+9. Parameterized Test
+
+10. Data Provider ( multiple set of data )
+
+11. Parallel Test
+
+12. Cross Browser Test
+
+13. Report
+
+14. Failed Test              1. testng-failed.xml ( it stores failed test cases ).
+
+15. IRetryAnalyser           1. IRetryAnalyser (I)
+
+                             2. IAnnotationTransformer -----> I  
+
+16. Asserts                  1. Hard Assert(Validation)
+
+							 2. Soft Assert(Verification)                               
+**
+************************************************************************************************************
+
+Simple Annotations :
+
+@BeforeSuite
+             @BeforeTest
+                        @BeforeClass
+                                    @BeforeMethod
+                                                 @Test ---> Method
+                                                  
+                                                 @Test
+                                    @AfterMethod
+                        @AfterClass
+            @AfterTest
+@AfterSuite
+
+**************************************************************************************************************
+ignore test :
+
+@Ignore
+
+@Test(enabled = false)
+
+<exclude name = "method name" > in xml file
+
+***************************************************************************************************************
+Priority Test :
+
+@Test(priority=-1)
+
+@Test(priority=0)
+
+@Test(priority=+1)
+
+Priority order goes to -ve to 0 to +ve
+
+-5 -4 -3 -2 -1 0 +1 +2 +3 +4
+
+If we not give priority in @Test it will consider as a 0
+
+If priority number is same the priority depends upon ascii valueorder
+
+*************************************************************************************************************
+
+Invocation Count :
+
+number of times a test method should be invoked or executing any other test method.
+
+**************************************************************************************************************
+
+TimeOut Test
+
+can put an end to the execution of a test method if that method takes time beyond the timeout duration. A timeOut time is 
+set in milliseconds 
+
+if given timOut is hihger than thread value -> process executed
+
+if given timeOut is lower than thread value -> it will throw a internal thread tomeOut Exception
+
+*************************************************************************************************************
+
+ExpectedExceptions :
+
+exception scenarios by allowing the user to specify the type of exceptions 
+that are expected to be thrown by a test during execution....
+
+**************************************************************************************************************
+
+Dependency test :
+
+allows a test method to depend on a single or a group of test methods 
+
+****************************************************************************************************************
+Parameterized test :
+
+       allow developers to run the same test over and over again using different values.
+
+       To pass multiple data to the application at runtime, we need to parameterize our test scripts.
+
+two ways 
+
+       Parmeters annotation and TestNG XML file.
+
+       DataProvider annotation.
+
+Parameters - @Parameters, 
+
+            @Optional
+
+           @Parameters({"refname1","refname2"})
+
+*******************************************************************************************************************
+
+DataProvider test :
+
+             To run same set of actions on multiple set of Test Data 
+
+             Return type is 2-D Array Object [] []
+
+             Data provider returns a two-dimensional JAVA object to the test method
+
+*********************************************************************************************************************
+
+
+       J-Unit                                                      TestNG
+
+JUnit is an open-source framework.                          TestNG is a Java-based framework.
+JUnit does not support to run parallel tests.               TestNG can run parallel tests.
+It does not support advanced annotation.                    It supports advanced annotation.
+The dependency tests are missing.                           Dependency tests are present in TestNG.
+Grouping tests together is not possible.                    Tests can be grouped together and run parallel.
+Hard Asserts Only.                                          Hard Assert and soft Assert.
+Methods Should Be Public.                                   Methods are public / private.
+
+***********************************************************************************************************
+
+qns :
+
+Annotations 
+
+ignore 
+
+priority
+
+diff between validation and verification
+
+diff between hard assert and soft assert
+
+************************************************************************************************************
+
+Grouping Test:
+
+             doesn't exist in JUnit framework
+
+             special feature inTestNG
+
+             allow you to perform groupings of different test methods.
+
+Groups 
+
+Groups of Groups
+
+**************************************************************************************************************
+
+VALIDATION :
+
+Assert:
+
+        Hard assert (Validation)
+
+        Soft assert (Verification)
+
+Return type of Assert : boolean
+
+Hard assert :
+
+             it will stop the execution if test is failed.
+
+             it will not continue the execution.
+
+             assertEquals(actual,expected) ---> if actual and expected equals test passed
+
+             assertNotEquals(actual,expected) ---> if actual and expected not equals test passed
+
+             assertSame(actual,expected) ---> if actual and expected equals test passed
+
+             assertNull(object) ---> if null is here it will pass
+
+             assertNotNull(object) ---> if null is not here it will pass
+
+             assertTrue ---> if conditions true test passed
+
+             assertFalse ---> if conditions false test passed
+
+SOFT ASSERT :
+
+             It will verify the validation and continue even if validation is failed.
+
+             SoftAssert soft = new SoftAssert();
+
+             soft.assertEquals(actual string,expected string)
+
+*********************************************************************************************************************
+IRetryAnalyzer (Interface)
+--------------
+   
+   We can use some random failure during an automated test run.These failures might not necessarily 
+be because of product bugs.
+
+These failure can be because of following reasons
+
+        - Random browser issues or browser becoming un responsive
+        - Random machine isuues
+        - Server issues like unexpected delay in the response from server
+
+
+IAnnotationTransformer (Interface)
+-----------------------
+
+Listeners
+---------
+   Listener is defined as interface that modifies the default TestNG's behaviour.
+
+   As the name suggests Listeners "listen" to the event defined in the selenium script and behave accordingly.
+
+   It is used in selenium by implementing Listeners interface.
+  
+   It allows customizing reports or logs.
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
